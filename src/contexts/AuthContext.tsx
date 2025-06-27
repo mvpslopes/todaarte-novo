@@ -55,16 +55,25 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    const foundUser = users.find(u => u.email === email);
-    if (foundUser && password === 'demo123') {
-      setUser(foundUser);
-      localStorage.setItem('todaarte_user', JSON.stringify(foundUser));
+    try {
+      const response = await fetch('http://localhost:3001/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      if (!response.ok) {
+        setIsLoading(false);
+        return false;
+      }
+      const data = await response.json();
+      setUser(data.user);
+      localStorage.setItem('todaarte_user', JSON.stringify(data.user));
       setIsLoading(false);
       return true;
+    } catch (error) {
+      setIsLoading(false);
+      return false;
     }
-    setIsLoading(false);
-    return false;
   };
 
   const register = async (data: {
