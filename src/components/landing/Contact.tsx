@@ -49,19 +49,19 @@ export function Contact() {
                   {
                     icon: Mail,
                     title: 'E-mail',
-                    content: 'contato@todaarte.com',
-                    link: 'mailto:contato@todaarte.com'
+                    content: '',
+                    link: ''
                   },
                   {
                     icon: Phone,
                     title: 'Telefone',
-                    content: '(11) 99999-9999',
-                    link: 'tel:+5511999999999'
+                    content: '',
+                    link: ''
                   },
                   {
                     icon: MapPin,
                     title: 'Endereço',
-                    content: 'São Paulo, SP - Brasil',
+                    content: '',
                     link: null
                   }
                 ].map((item, index) => (
@@ -90,9 +90,9 @@ export function Contact() {
             <div className="bg-gradient-to-br from-logo/10 to-logo-light/10 backdrop-blur-sm border border-logo/20 rounded-2xl p-6">
               <h4 className="text-white font-semibold mb-3">Horário de Atendimento</h4>
               <div className="space-y-2 text-gray-300">
-                <p>Segunda à Sexta: 9h às 18h</p>
-                <p>Sábado: 9h às 13h</p>
-                <p>Domingo: Fechado</p>
+                <p></p>
+                <p></p>
+                <p></p>
               </div>
             </div>
           </div>

@@ -18,37 +18,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // Mock users for demonstration
-const initialMockUsers: User[] = [
-  {
-    id: '1',
-    name: 'Admin Toda Arte',
-    email: 'admin@todaarte.com',
-    role: 'admin',
-    avatar: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1'
-  },
-  {
-    id: '2',
-    name: 'João Silva',
-    email: 'joao@empresa.com',
-    role: 'client',
-    company: 'Empresa XYZ',
-    avatar: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1'
-  },
-  {
-    id: '3',
-    name: 'Lara',
-    email: 'lara@todaarte.com',
-    role: 'admin',
-    avatar: 'https://ui-avatars.com/api/?name=Lara'
-  },
-  {
-    id: '4',
-    name: 'Thaty',
-    email: 'thaty@todaarte.com',
-    role: 'admin',
-    avatar: 'https://ui-avatars.com/api/?name=Thaty'
-  }
-];
+const initialMockUsers: User[] = [];
 
 function getStoredUsers(): User[] {
   const stored = localStorage.getItem('todaarte_users');

@@ -10,7 +10,7 @@ const iconMap = {
 };
 
 export function Services() {
-  const { services } = useData();
+  const { services } = { services: [] };
 
   return (
     <section id="services" className="py-20 bg-white">

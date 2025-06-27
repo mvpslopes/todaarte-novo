@@ -12,12 +12,11 @@ export function Hero() {
         <div className="space-y-8">
           <div className="space-y-4">
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-center mb-6">
-              <span>Transformamos</span>
+              <span></span>
               <br />
-              <span className="text-logo">Ideias em Arte</span>
+              <span className="text-logo"></span>
             </h1>
             <p className="text-xl sm:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              Criamos experiências visuais únicas que conectam sua marca ao coração do seu público
             </p>
           </div>
 
@@ -39,11 +38,7 @@ export function Hero() {
           </div>
 
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-            {[
-              { number: '200+', label: 'Projetos Entregues' },
-              { number: '50+', label: 'Clientes Satisfeitos' },
-              { number: '5+', label: 'Anos de Experiência' }
-            ].map((stat, index) => (
+            {[{ number: '', label: '' }, { number: '', label: '' }, { number: '', label: '' }].map((stat, index) => (
               <div key={index} className="space-y-2">
                 <div className="text-3xl sm:text-4xl font-bold text-white">{stat.number}</div>
                 <div className="text-gray-300">{stat.label}</div>

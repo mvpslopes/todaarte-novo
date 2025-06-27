@@ -38,19 +38,19 @@ export function LandingPage() {
             <div>
               <h3 className="font-semibold mb-4">Serviços</h3>
               <ul className="space-y-2 text-gray-300">
-                <li>Identidade Visual</li>
-                <li>Marketing Digital</li>
-                <li>Web Design</li>
-                <li>Design Gráfico</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
               </ul>
             </div>
             
             <div>
               <h3 className="font-semibold mb-4">Contato</h3>
               <ul className="space-y-2 text-gray-300">
-                <li>contato@todaarte.com</li>
-                <li>(11) 99999-9999</li>
-                <li>São Paulo, SP</li>
+                <li></li>
+                <li></li>
+                <li></li>
               </ul>
             </div>
           </div>
@@ -58,7 +58,7 @@ export function LandingPage() {
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <div className="flex flex-col md:flex-row md:justify-between items-center">
               <p>&copy; 2024 Toda Arte. Todos os direitos reservados.</p>
-              <span className="text-xs text-gray-500 mt-2 md:mt-0">v1.0.0</span>
+              <span className="text-xs text-gray-500 mt-2 md:mt-0"></span>
             </div>
           </div>
         </div>

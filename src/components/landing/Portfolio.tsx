@@ -9,9 +9,7 @@ export function Portfolio() {
 
   const categories = ['all', ...Array.from(new Set(portfolio.map(item => item.category)))];
   
-  const filteredPortfolio = filter === 'all' 
-    ? portfolio 
-    : portfolio.filter(item => item.category === filter);
+  const filteredPortfolio = [];
 
   return (
     <section id="portfolio" className="py-20 bg-gray-50">
@@ -21,7 +19,6 @@ export function Portfolio() {
             Nosso Portfólio
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Conheça alguns dos projetos que criamos com paixão e dedicação
           </p>
         </div>
 
