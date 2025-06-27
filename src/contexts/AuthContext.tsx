@@ -53,7 +53,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setStoredUsers(users);
   }, [users]);
 
-  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+  const apiUrl = import.meta.env.VITE_API_URL;
+  if (!apiUrl) {
+    throw new Error('VITE_API_URL não está definida. Verifique seu arquivo .env.production e o processo de build.');
+  }
   const login = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
     try {
