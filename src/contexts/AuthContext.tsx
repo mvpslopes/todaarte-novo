@@ -53,10 +53,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setStoredUsers(users);
   }, [users]);
 
+  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
   const login = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:3001/api/login', {
+      const response = await fetch(`${apiUrl}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
