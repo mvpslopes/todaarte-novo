@@ -3,11 +3,13 @@ import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
 import bcrypt from 'bcryptjs';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000; // Use 3000 para compatibilidade com a hospedagem
 
 app.use(cors());
 app.use(express.json());
@@ -21,16 +23,11 @@ const pool = mysql.createPool({
   port: process.env.DB_PORT || 3306,
 });
 
-app.get('/', async (req, res) => {
-  try {
-    const [rows] = await pool.query('SELECT 1 + 1 AS solution');
-    res.json({ message: 'Conexão bem-sucedida!', result: rows[0].solution });
-  } catch (error) {
-    res.status(500).json({ error: 'Erro ao conectar ao banco de dados', details: error.message });
-  }
+// Rotas da API
+app.get('/api', (req, res) => {
+  res.json({ message: 'API online!' });
 });
 
-// Rota de login real
 app.post('/api/login', async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -54,6 +51,23 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
+// ----------- SERVIR O FRONTEND (React/Vite) -----------
+
+// Para usar __dirname em ES Modules:
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Servir arquivos estáticos do frontend
+app.use(express.static(path.join(__dirname, '../dist')));
+
+// Para SPA: redireciona todas as rotas que não sejam /api para o index.html
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({ error: 'API endpoint não encontrado.' });
+  }
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+});
+
 app.listen(port, () => {
-  console.log(`Backend rodando em http://localhost:${port}`);
-}); 
+  console.log(`Servidor rodando em http://localhost:${port}`);
+});
